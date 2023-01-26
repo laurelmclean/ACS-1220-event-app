@@ -21,7 +21,7 @@ def index():
     # TODO: Get all events and send to the template
     events = Event.query.all()
     
-    return render_template('index.html')
+    return render_template('index.html', events=events)
 
 
 @main.route('/create', methods=['GET', 'POST'])
@@ -43,6 +43,9 @@ def create():
 
         # TODO: Create a new event with the given title, description, & 
         # datetime, then add and commit to the database
+        event = Event(title=new_event_title, description=new_event_description, date_and_time=date_and_time)
+        db.session.add(event)
+        db.session.commit()
 
         flash('Event created.')
         return redirect(url_for('main.index'))

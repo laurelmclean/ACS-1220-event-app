@@ -77,7 +77,7 @@ def rsvp(event_id):
         guest = Guest.query.filter_by(name=guest_name).first()
         if guest is None:
             return render_template('event_detail.html',
-                                   error='Guest not found.')
+                                   error='Guest not found!', event=event)
         # TODO: If the guest does exist, add the event to their 
         # events_attending, then commit to the database.
         else:

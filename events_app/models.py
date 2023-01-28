@@ -19,7 +19,6 @@ class Guest(db.Model):
         'Event', secondary='guest_event', back_populates='guests')
 
 
-
 # TODO: Create a model called `Event` with the following fields:
 # - id: primary key
 # - title: String column
